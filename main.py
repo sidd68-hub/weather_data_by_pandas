@@ -1,3 +1,10 @@
+import csv
+
+
 with open('weather_data.csv') as weather:
-    weather_data = weather.readlines()
-    print(weather_data)
+    data = csv.reader(weather)
+    temperature = []
+    for row in data:
+        if(row[1] != "temp"):
+            temperature.append(int(row[1]))
+            print(temperature)
